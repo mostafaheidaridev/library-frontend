@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Frontend | Book Details</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/book.css" />
+    <script type="module" src="js/book.js"></script>
+  </head>
+  <body>
+    <header role="banner">
+      <nav id="main-nav" role="navigation" aria-label="Main navigation">
+        <div id="logo_div">
+          <a href="index.html" title="Home" aria-label="Go to homepage">
+            <img src="images/logo.svg" alt="Library logo">
+          </a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="books.html" title="Books List Page" aria-label="View all books">Books</a></li>
+          <li><a href="authors.html" title="Authors List Page" aria-label="View all authors">Authors</a></li>
+        </ul>
+
+        <ul class="auth-links">
+          <li><a href="signup.html" title="Signup Page" aria-label="Sign up for an account">Sign Up</a></li>
+          <li><a href="login.html" title="Login Page" aria-label="Log in to your account">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main role="main">
+      <div id="book-details" aria-live="polite"></div>
+
+      <template id="book-detail-template">
+        <div class="single-book">
+          <img class="book-cover-large" alt="" aria-labelledby="book-title" />
+          <div class="book-details">
+            <h2 class="book-title" id="book-title"></h2>
+            <p><strong>Author:</strong> <span class="book-author"></span></p>
+            <p>
+              <strong>Published:</strong> <span class="book-year"></span> by
+              <span class="book-publisher"></span>
+            </p>
+            <a href="books.html" class="back-button" aria-label="Return to book list">Back to Books</a>
+          </div>
+        </div>
+      </template>
+    </main>
+
+    <footer role="contentinfo">
+      <p>&copy; Library Exam First Semester Project 2025</p>
+    </footer>
+  </body>
+</html>
