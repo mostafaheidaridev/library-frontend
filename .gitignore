@@ -1,2 +1,6 @@
 node_modules/
+<<<<<<< HEAD
 js/info.js
+=======
+js/info.js
+>>>>>>> single_view_book_page
