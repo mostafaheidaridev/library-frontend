@@ -19,29 +19,7 @@ The data comes from an SQLite database and covers books, authors, publishers, an
 
 ---
 
-## 👤 User Features
 
-- Sign up with email and password (with validation)
-- Log in and log out
-- See random books and search by title
-- See all authors and their books
-- See details of a book (without loan history)
-- When logged in:
-  - Loan a book (30 days, if not already loaned)
-  - Edit personal info (except password and member date)
-  - Delete account
-
----
-
-## 🛠️ Admin Features
-
-- Log in as admin (`admin.library@mail.com` / `WebUdvikling25!`)
-- When logged in:
-  - See book details including loan history
-  - Add books, authors, and publishers
-  - Log out
-
----
 
 ## 🧪 Technical Notes
 
