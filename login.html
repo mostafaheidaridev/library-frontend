@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/styles.css">
-    <script type="module" src="js/login.js"></script>
-    <title>Home | Library</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script type="module" src="js/main.js"></script>
+    <title>Login | Library</title>
 </head>
 
 <body>
@@ -32,7 +33,19 @@
     </header>
 
     <main>
-        <h2>Home body</h2>
+        <div class="login-container">
+            <header class="login-header">
+                <h1>Login</h1>
+            </header>
+            
+            <div class="login-form-container">
+                <form id="login_form">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -41,4 +54,3 @@
 </body>
 
 </html>
-
