@@ -1,15 +1,29 @@
 import { BASE_URL } from './info.js';
 
+
 const form = document.getElementById('search-form');
 const input = document.getElementById('search-input');
 const resultsContainer = document.getElementById('books-display-section');
+const errorElement = document.getElementById('search-error');
 const bookCardTemplate = document.querySelector('.book-card').content;
 
+input.addEventListener('input', () => {
+    if (input.value.trim().length >= 2) {
+      errorElement.textContent = '';
+    }
+  });
+
 form.addEventListener('submit', async (e) => {
+    // e.preventDefault - forhindre reload ved tryk på knappen
   e.preventDefault();
   const query = input.value.trim();
 
-  if (query.length < 2) return;
+  errorElement.textContent = '';
+
+  if (query.length < 2) {
+    errorElement.textContent = 'Please enter at least 2 characters.';
+    return;
+  }
 
   try {
     const res = await fetch(`${BASE_URL}/books?s=${encodeURIComponent(query)}`);
