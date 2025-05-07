@@ -1,5 +1,14 @@
-// info.js
+let BASE_URL = "http://127.0.0.1:8080";
 
-const BASE_URL = "http://localhost:8080";
+async function detectServer() {
+  try {
+    const res = await fetch(`${BASE_URL}/health-check`);
+    if (!res.ok) throw new Error("Not OK");
+  } catch (err) {
+    // fallback to port 5000
+    BASE_URL = "http://127.0.0.1:8080";
+  }
+}
 
+await detectServer();
 export { BASE_URL };
