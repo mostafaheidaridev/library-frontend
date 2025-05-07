@@ -39,6 +39,10 @@ const showRandomBooks = async () => {
       coverImg.className = 'book-cover';
       bookInfo.insertBefore(coverImg, bookInfo.firstChild);
 
+      // navigate to single book view
+      const singleLink = card.querySelector('#single_view_link');
+      singleLink.href = `book.htm?id=${fetchedBookData.book_id}`;
+
       fragment.appendChild(card);
     });
 
@@ -51,3 +55,4 @@ const showRandomBooks = async () => {
 };
 
 showRandomBooks();
+
