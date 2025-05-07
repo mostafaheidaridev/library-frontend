@@ -18,6 +18,10 @@
     --spacing-medium: 1rem;
     --spacing-large: 1.5rem;
     --spacing-xlarge: 2rem;
+
+    --error-red-color: #e53e3e;
+
+    --font-family: Arial, sans-serif;
     
    
     --max-width: 1200px;
