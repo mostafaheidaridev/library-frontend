@@ -1,0 +1,26 @@
+/*add the font here*/
+
+:root {
+
+    --primary-dark: #2c3e50;    
+    --primary-light: #3498db;
+    --background-white: white;   
+    
+ 
+    --text-light: white;        
+    --text-dark: #333;         
+    
+    
+    --shadow-color: rgba(0, 0, 0, 0.142);  
+    
+
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 1.5rem;
+    --spacing-xlarge: 2rem;
+    
+   
+    --max-width: 1200px;
+    --border-radius: 4px;
+}
+
