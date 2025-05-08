@@ -39,14 +39,13 @@
   font-size: 1.1rem;
 }
 
-/* Back button styling */
 .back-button {
   display: inline-block;
   min-height: 44px;
   min-width: 44px;
   padding: 0.75rem 1.5rem;
   margin-top: var(--spacing-large);
-  background-color: var(--accent-color);
+  background-color: var(--primary-dark);
   color: white;
   text-decoration: none;
   border-radius: var(--border-radius);
@@ -57,7 +56,7 @@
 
 .back-button:hover,
 .back-button:focus {
-  background-color: var(--accent-dark);
+  background-color: var(--primary-light);
 }
 
 .back-button:focus {
@@ -65,7 +64,6 @@
   outline-offset: 2px;
 }
 
-/* Error message styling */
 .error-message {
   background-color: var(--error-bg-color);
   color: var(--error-text-color);
