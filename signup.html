@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/signup.css" />
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/signup.js"></script>
+
+    <title>Signup | Library</title>
+  </head>
+
+  <body>
+    <header>
+      <nav id="main-nav">
+        <div id="logo_div">
+          <a href="index.html" title="Home">
+            <img src="images/logo.svg" alt="Library logo" />
+          </a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="books.html" title="Books List Page">Books</a></li>
+          <li><a href="authors.html" title="Authors List Page">Authors</a></li>
+        </ul>
+
+        <ul class="auth-links">
+          <li><a href="signup.html" title="sginup Page">Sign Up</a></li>
+          <li><a href="login.html" title="Login Page">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="signup-container">
+        <header class="signup-header">
+          <h1>Sign up</h1>
+        </header>
+        <div class="signup-form-container">
+            <form id="signup_form">
+                <div>
+                    <label for="txtFirstname">First name</label>
+                    <input type="text" id="txtFirstname" required />
+                </div>
+                <div>
+                    <label for="txtLastname">Last name</label>
+                    <input type="text" id="txtLastname" required />
+                </div>
+                <div>
+                    <label for="txtEmail">E-mail</label>
+                    <input type="text" id="txtEmail" required />
+                </div>
+                <div>
+                    <label for="txtAdress">Adress</label>
+                    <input type="text" id="txtAdress" required />
+                </div>
+                <div>
+                    <label for="txtPhone">Phone</label>
+                    <input type="tel" id="txtPhone" required />
+                </div>
+                <div>
+                    <label for="txtBirth-date">Birth Date</label>
+                    <input type="date" id="txtBirth-date" required />
+                </div>
+                <div>
+                    <label for="txtPassword">Password</label>
+                    <input type="password" id="txtPassword" required />
+                </div>
+                <div>
+                    <label for="txtRepeatPassword">Repeat password</label>
+                    <input type="password" id="txtRepeatPassword" required />
+                </div>
+                <div>
+                    <button type="submit">Sign up</button>
+                </div>
+            </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; Library Exam First Semester Project 2025</p>
+    </footer>
+  </body>
+</html>
