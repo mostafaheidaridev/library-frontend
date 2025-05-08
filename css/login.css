@@ -72,3 +72,12 @@
         padding: var(--spacing-large);
     }
 }
+
+
+
+#errorMessage {
+    color: var(--error-red-color);
+    display: none;
+    margin-bottom: 10px;
+    text-align: center;
+}
