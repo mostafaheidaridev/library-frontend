@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/styles.css">
-    <script type="module" src="js/login.js"></script>
+    <link rel="stylesheet" href="css/profile.css">
+    <script type="module" src="js/profile.js"></script>
+    <script type="module" src="js/main.js"></script>
     <title>Profile  | Library</title>
 </head>
 
@@ -32,8 +34,37 @@
     </header>
 
     <main>
-        <h2>User Profile body</h2>
+        <h2>User Profile</h2>
+        <section id="profile-section"></section>
     </main>
+
+    <template id="profile-readonly-template">
+        <div class="profile-info">
+            <p><strong>First Name:</strong> <span class="first_name"></span></p>
+            <p><strong>Last Name:</strong> <span class="last_name"></span></p>
+            <p><strong>Email:</strong> <span class="email"></span></p>
+            <p><strong>Address:</strong> <span class="address"></span></p>
+            <p><strong>Phone:</strong> <span class="phone_number"></span></p>
+            <p><strong>Birth Date:</strong> <span class="birth_date"></span></p>
+            <button id="edit-profile-btn">Edit Profile</button>
+            <div id="profile-message"></div>
+        </div>
+    </template>
+
+    <template id="profile-template">
+        <div>
+            <form id="profile-form" class="profile-edit-form">
+            <label>First Name: <input type="text" name="first_name" required></label>
+            <label>Last Name: <input type="text" name="last_name" required></label>
+            <label>Email: <input type="email" name="email" required></label>
+            <label>Address: <input type="text" name="address" required></label>
+            <label>Phone: <input type="tel" name="phone_number" required></label>
+            <label>Birth Date: <input type="date" name="birth_date" required></label>
+            <button type="submit">Save Changes</button>
+            </form>
+            <div id="profile-message"></div>
+        </div>
+    </template>
 
     <footer>
         <p>&copy; Library Exam First Semester Project 2025</p>
