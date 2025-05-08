@@ -41,7 +41,7 @@ const showRandomBooks = async () => {
 
       // navigate to single book view
       const singleLink = card.querySelector('#single_view_link');
-      singleLink.href = `book.htm?id=${fetchedBookData.book_id}`;
+      singleLink.href = `book.html?id=${fetchedBookData.book_id}`;
 
       fragment.appendChild(card);
     });
