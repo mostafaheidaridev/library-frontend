@@ -1,0 +1,73 @@
+@import "variables.css";
+
+.signup-container {
+  max-width: 450px;
+  margin: auto;
+  background-color: var(--background-white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px var(--shadow-color);
+  overflow: hidden;
+}
+
+.signup-header {
+  background-color: var(--background-white);
+  color: var(--text-dark);
+  padding: var(--spacing-large);
+  text-align: center;
+  box-shadow: none;
+}
+
+.signup-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.signup-form-container {
+  padding: var(--spacing-xlarge);
+}
+
+#signup_form input {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-medium);
+  margin-bottom: var(--spacing-large);
+  border: 1px solid var(--shadow-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background-color: var(--background-white);
+}
+
+#signup_form input:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: var(--primary-light);
+}
+
+#signup_form button {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-medium);
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#signup_form button:hover {
+  background-color: var(--primary-light);
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    margin: 2rem var(--spacing-medium);
+  }
+
+  .login-form-container {
+    padding: var(--spacing-large);
+  }
+}
