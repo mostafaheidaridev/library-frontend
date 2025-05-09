@@ -17,26 +17,21 @@
     --spacing-large: 1.5rem;
     --spacing-xlarge: 2rem;
 
-<<<<<<< HEAD
     
-=======
-    --error-red-color: #e53e3e;
-    --success-green-color: #27ae60;
->>>>>>> c237adf707cafdb4f4e4e0ebe67494d4cb12471e
-
+    
     --font-family: Arial, sans-serif;
-
+    
     --font-size-small: 0.875rem;
     --font-size-normal: 1rem;
     --font-size-large: 1.25rem;
     --font-size-xlarge: 1.8rem;
     --font-size-xxlarge: 2.5rem;
     
-
+    
     --max-width: 1200px;
     --border-radius: 4px;
-
-
+    
+    
     /* error and success handling colors */
     --success-bg-color: #e6f7e6;
     --success-text-color: #2e7d32;
@@ -46,5 +41,7 @@
     --error-border-color: #c62828;
     
     --error-red-color: #e53e3e;
+    --error-red-hover-color: #fd5757;
+    --success-green-color: #27ae60;
 }
 

@@ -36,6 +36,24 @@ async function loadUserProfile() {
             showEditProfileForm(user);
         });
 
+        profileNode.getElementById('delete-profile-btn').addEventListener('click', async () => {
+            const confirmDelete = confirm('Are you sure you want to delete your profile? This action cannot be undone.');
+            if (confirmDelete) {
+                try {
+                    const res = await fetch(`${BASE_URL}/users/${userId}`, {
+                        method: 'DELETE',
+                        headers: getAuthHeaders()
+                    });
+                    if (!res.ok) throw new Error('Failed to delete user');
+                    sessionStorage.removeItem('user_id');
+                    sessionStorage.removeItem('user_token');
+                    window.location.href = '/';
+                } catch (err) {
+                    profileSection.innerHTML = `<p class="error-message">${err.message}</p>`;
+                }
+            }
+        });
+
         fragment.appendChild(profileNode);
         profileSection.innerHTML = '';
         profileSection.appendChild(fragment);
