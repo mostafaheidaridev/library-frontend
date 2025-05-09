@@ -55,6 +55,9 @@ form.addEventListener('submit', async (e) => {
       coverImg.className = 'book-cover';
       bookInfo.insertBefore(coverImg, bookInfo.firstChild);
 
+      const singleLink = card.querySelector('#single_view_link');
+      singleLink.href = `book.htm?id=${book.book_id}`;
+
       fragment.appendChild(card);
     }
 
