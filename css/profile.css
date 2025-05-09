@@ -1,0 +1,97 @@
+main h2 {
+    margin-bottom: var(--spacing-xlarge);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    padding: var(--spacing-xlarge);
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.profile-info p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.profile-info strong {
+    color: var(--primary-dark);
+    min-width: 120px;
+    display: inline-block;
+}
+
+#edit-profile-btn, .profile-edit-form button {
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-medium) var(--spacing-large);
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#edit-profile-btn:hover, .profile-edit-form button:hover {
+    background-color: var(--primary-light);
+}
+
+.profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--background-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px var(--shadow-color);
+    padding: var(--spacing-xlarge);
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.profile-edit-form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: var(--primary-dark);
+}
+
+.profile-edit-form input {
+    margin-top: 0.3rem;
+    padding: var(--spacing-small);
+    border: 1px solid var(--shadow-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: var(--background-white);
+}
+
+.profile-edit-form input:focus {
+    outline: none;
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.success-message {
+    text-align: center;
+    margin-top: var(--spacing-large);
+    font-weight: bold;
+    font-size: var(--spacing-large);
+}
+
+.error-message {
+    color: var(--error-red-color);
+    text-align: center;
+    margin-top: var(--spacing-large);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
