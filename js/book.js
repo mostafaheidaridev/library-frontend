@@ -17,8 +17,10 @@ const showSingleBook = async () => {
     const bookContainer = document.getElementById('book-details');
     const bookTemplate = document.getElementById('book-detail-template').content;
     const bookElement = bookTemplate.cloneNode(true);
+    const breadCrumb = document.getElementById('breadcrumb-current-book');
 
     document.title = `${fetchedBookData.title} | Library Frontend`;
+    breadCrumb.textContent = fetchedBookData.title;
     
     bookElement.querySelector('.book-cover-large').src = fetchedBookData.cover || 'images/logo.svg';
     bookElement.querySelector('.book-cover-large').alt = fetchedBookData.title;

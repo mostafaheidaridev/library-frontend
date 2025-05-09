@@ -30,6 +30,13 @@
     </header>
 
     <main role="main">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ul>
+          <li><a href="books.html">Books</a></li>
+          <li id="breadcrumb-current-book" aria-current="page"></li>
+        </ul>
+      </nav>
+
       <div id="book-details" aria-live="polite"></div>
 
       <template id="book-detail-template">
