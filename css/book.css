@@ -27,7 +27,7 @@
   align-items: center;
   gap: var(--spacing-large);
   padding: var(--spacing-large);
-  background-color: white;
+  background-color: var(--background-white);
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px var(--shadow-color);
   max-width: 800px;
@@ -42,47 +42,52 @@
   object-fit: cover;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px var(--shadow-color);
-  background-color: var(--background-light);
+  background-color: var(--background-white);
 }
 
 .book-details {
   width: 100%;
+  min-height: 400px;
 }
 
 .book-title {
   color: var(--primary-dark);
   margin-bottom: var(--spacing-medium);
-  font-size: 1.8rem;
+  font-size: var(--font-size-xlarge);
 }
 
 .book-details p {
   margin-bottom: var(--spacing-medium);
-  font-size: 1.1rem;
+  font-size: var(--font-size-large);
 }
 
-.back-button {
+.back-button, button {
   display: inline-block;
   min-height: 44px;
   min-width: 44px;
   padding: 0.75rem 1.5rem;
   margin-top: var(--spacing-large);
   background-color: var(--primary-dark);
-  color: white;
+  color: var(--text-light);
   text-decoration: none;
   border-radius: var(--border-radius);
+  border: none;
   font-weight: bold;
+  font-size: var(--font-size-normal);
   text-align: center;
   transition: background-color 0.2s;
 }
 
-.back-button:hover,
-.back-button:focus {
-  background-color: var(--primary-light);
+.back-button {
+  margin-top: auto;
 }
 
-.back-button:focus {
-  outline: 2px solid var(--focus-color);
-  outline-offset: 2px;
+.back-button:hover,
+.back-button:focus,
+button:hover,
+button:focus {
+  background-color: var(--primary-light);
+  cursor: pointer;
 }
 
 .error-message {
@@ -97,13 +102,38 @@
 }
 
 .error-message a {
-  color: var(--accent-color);
+  color: var(--primary-light);
   font-weight: bold;
   text-decoration: underline;
   min-height: 44px;
   display: inline-block;
   padding: 0.5rem;
 }
+
+.loan-button:disabled {
+  background-color: var(--shadow-color);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.loan-message {
+  margin: var(--spacing-medium) 0;
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+}
+
+.loan-message.success {
+  background-color: var(--success-bg-color);
+  color: var(--success-text-color);
+  border-left: 4px solid var(--success-border-color);
+}
+
+.loan-message.error {
+  background-color: var(--error-bg-color);
+  color: var(--error-text-color);
+  border-left: 4px solid var(--error-border-color);
+}
+
 
 @media (min-width: 768px) {
   .single-book {

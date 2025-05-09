@@ -6,6 +6,7 @@
     <title>Library Frontend | Book Details</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/book.css" />
+    <script type="module" src="js/main.js"></script>
     <script type="module" src="js/book.js"></script>
   </head>
   <body>
@@ -49,7 +50,13 @@
               <strong>Published:</strong> <span class="book-year"></span> by
               <span class="book-publisher"></span>
             </p>
-            <a href="index.html" class="back-button" aria-label="Return to book list">Back to Books</a>
+
+            <div id="loan-section" class="loan-section hidden">
+              <button id="loan-button" class="loan-button">Loan This Book</button>
+              <p id="loan-message" class="loan-message"></p>
+            </div>
+
+            <a href="index.html" class="back-button" aria-label="Return to book list">Back to books</a>
           </div>
         </div>
       </template>

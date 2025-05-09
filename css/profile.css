@@ -30,7 +30,7 @@ main h2 {
     display: inline-block;
 }
 
-#edit-profile-btn, .profile-edit-form button {
+#edit-profile-btn, .profile-edit-form button{
     margin-top: var(--spacing-large);
     padding: var(--spacing-medium) var(--spacing-large);
     background-color: var(--primary-dark);
@@ -45,6 +45,23 @@ main h2 {
 
 #edit-profile-btn:hover, .profile-edit-form button:hover {
     background-color: var(--primary-light);
+}
+
+#delete-profile-btn {
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-medium) var(--spacing-large);
+    background-color: var(--error-red-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#delete-profile-btn:hover {
+    background-color: var(--error-red-hover-color);
 }
 
 .profile-edit-form {

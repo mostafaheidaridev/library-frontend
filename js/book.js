@@ -1,4 +1,5 @@
 import { BASE_URL } from "./info.js";
+import { getAuthHeaders } from "./auth.js";
 
 const showSingleBook = async () => {
   try {
@@ -29,6 +30,54 @@ const showSingleBook = async () => {
     bookElement.querySelector('.book-year').textContent = fetchedBookData.publishing_year;
     bookElement.querySelector('.book-publisher').textContent = fetchedBookData.publishing_company;
     
+    // Handle loan functionality - only show for logged-in users
+    const isLoggedIn = sessionStorage.getItem('user_id') && sessionStorage.getItem('user_token');
+    const loanSection = bookElement.querySelector('#loan-section');
+    
+    if (isLoggedIn) {
+      loanSection.classList.remove('hidden');
+      const loanButton = bookElement.querySelector('#loan-button');
+      const loanMessage = bookElement.querySelector('#loan-message');
+      
+      loanButton.addEventListener('click', async () => {
+try {
+  loanButton.disabled = true;
+  loanButton.textContent = 'Processing...';
+  
+  const headers = getAuthHeaders();
+  const userId = sessionStorage.getItem('user_id');
+  
+  const loanResponse = await fetch(`${BASE_URL}/users/${userId}/books/${bookId}`, {
+    method: 'POST',
+    headers
+  });
+  
+  const result = await loanResponse.json();
+  
+  if (loanResponse.ok) {
+    loanMessage.textContent = 'Success! An access link to this e-book will be sent to your email address.';
+    loanMessage.className = 'loan-message success';
+    loanButton.style.display = 'none';
+  } else {
+    const errorMsg = result.error === "This user has still this book on loan" ?
+      'You already have a loan for this book.' : 
+      result.error || 'An error occurred while processing your loan.';
+    
+    loanMessage.textContent = errorMsg;
+    loanMessage.className = 'loan-message error';
+    loanButton.style.display = 'none';
+    loanButton.textContent = 'Loan This Book';
+  }
+} catch (error) {
+          loanMessage.textContent = 'An error occurred while processing your loan.';
+          loanMessage.className = 'loan-message error';
+          loanButton.disabled = true;
+          loanButton.textContent = 'Loan This Book';
+          console.error('Error creating loan:', error);
+        }
+      });
+    }
+    
     bookContainer.innerHTML = '';
     bookContainer.appendChild(bookElement);
     
@@ -52,4 +101,3 @@ const showSingleBook = async () => {
 };
 
 showSingleBook();
-document.addEventListener('DOMContentLoaded', showSingleBook);
