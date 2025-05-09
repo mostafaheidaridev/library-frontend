@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/styles.css">
-    <script type="module" src="js/main.js"></script>
-    <title>Home | Library</title>
+    <script type="module" src="js/books.js"></script>
+    <script type="module" src="js/search.js"></script>
+    <link rel="stylesheet" href="css/books.css">
+    <title>Random Books | Library</title>
 </head>
 
 <body>
@@ -20,18 +22,48 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="books.html" title="Books List Page">Books</a></li>
+                <li><a href="index.html" title="Books List Page">Books</a></li>
                 <li><a href="authors.html" title="Authors List Page">Authors</a></li>
             </ul>
 
             <ul class="auth-links">
+                <li><a href="signup.html" title="sginup Page">Sign Up</a></li>
+                <li><a href="login.html" title="Login Page">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <h2>Home body</h2>
+        <h2>Books page</h2>
+
+        <search>
+            <form id="search-form">
+                <label for="search-input">Search for books by title:</label>
+                <input type="text" id="search-input" placeholder="Search here" aria-label="Search for books by title">
+                <button type="submit">Søg</i></button>
+            </form>
+            <p id="search-error" class="error-message"></p>
+        </search>
+
+        <section id="books-display-section">
+
+        </section>
     </main>
+
+    <template class="book-card">
+        <article class="random-book">
+          <div class="book-info">
+            <div>
+              <h2></h2>
+              <p>Written by: <span class="author"></span> - <span class="year"></span></p>
+              <p>Published by: <span class="publisher"></span></p>
+            </div>
+            <div>
+              <a class="link" id="single_view_link" href="">Read more</a>
+            </div>
+          </div>
+        </article>
+      </template>
 
     <footer>
         <p>&copy; Library Exam First Semester Project 2025</p>

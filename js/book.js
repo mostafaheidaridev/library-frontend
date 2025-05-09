@@ -45,7 +45,7 @@ const showSingleBook = async () => {
         <p>${error.message === 'No book ID provided' ? 
           'No book was selected. Please choose a book from the list.' : 
           'Failed to load book details. The server might be unavailable.'}</p>
-        <a href="books.html" aria-label="Return to book list">Return to books list</a>
+        <a href="index.html" aria-label="Return to book list">Return to books list</a>
       </div>
     `;
   }
