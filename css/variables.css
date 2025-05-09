@@ -17,7 +17,12 @@
     --spacing-large: 1.5rem;
     --spacing-xlarge: 2rem;
 
+<<<<<<< HEAD
     
+=======
+    --error-red-color: #e53e3e;
+    --success-green-color: #27ae60;
+>>>>>>> c237adf707cafdb4f4e4e0ebe67494d4cb12471e
 
     --font-family: Arial, sans-serif;
 

@@ -1,5 +1,26 @@
 @import 'variables.css';
 
+.breadcrumb{
+  margin: var(--spacing-medium) var(--spacing-xlarge);
+  font-size: 0.9rem;
+}
+
+.breadcrumb ul{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-small);
+}
+
+.breadcrumb li::after{
+  content: ">";
+  margin-left: var(--spacing-small);
+}
+
+.breadcrumb li:last-child::after {
+  content: "";
+}
+
 .single-book {
   display: flex;
   flex-direction: column;

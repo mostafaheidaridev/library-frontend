@@ -19,7 +19,7 @@
         </div>
 
         <ul class="nav-links">
-          <li><a href="books.html" title="Books List Page" aria-label="View all books">Books</a></li>
+          <li><a href="index.html" title="Books List Page" aria-label="View all books">Books</a></li>
           <li><a href="authors.html" title="Authors List Page" aria-label="View all authors">Authors</a></li>
         </ul>
 
@@ -31,6 +31,13 @@
     </header>
 
     <main role="main">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ul>
+          <li><a href="index.html">Books</a></li>
+          <li id="breadcrumb-current-book" aria-current="page"></li>
+        </ul>
+      </nav>
+
       <div id="book-details" aria-live="polite"></div>
 
       <template id="book-detail-template">
@@ -43,6 +50,7 @@
               <strong>Published:</strong> <span class="book-year"></span> by
               <span class="book-publisher"></span>
             </p>
+<<<<<<< HEAD:book.html
 
             <div id="loan-section" class="loan-section hidden">
               <button id="loan-button" class="loan-button">Loan This Book</button>
@@ -50,6 +58,9 @@
             </div>
 
             <a href="books.html" class="back-button" aria-label="Return to book list">Back to books</a>
+=======
+            <a href="index.html" class="back-button" aria-label="Return to book list">Back to Books</a>
+>>>>>>> c237adf707cafdb4f4e4e0ebe67494d4cb12471e:book.htm
           </div>
         </div>
       </template>

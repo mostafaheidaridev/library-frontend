@@ -18,8 +18,10 @@ const showSingleBook = async () => {
     const bookContainer = document.getElementById('book-details');
     const bookTemplate = document.getElementById('book-detail-template').content;
     const bookElement = bookTemplate.cloneNode(true);
+    const breadCrumb = document.getElementById('breadcrumb-current-book');
 
     document.title = `${fetchedBookData.title} | Library Frontend`;
+    breadCrumb.textContent = fetchedBookData.title;
     
     bookElement.querySelector('.book-cover-large').src = fetchedBookData.cover || 'images/logo.svg';
     bookElement.querySelector('.book-cover-large').alt = fetchedBookData.title;
@@ -92,7 +94,7 @@ try {
         <p>${error.message === 'No book ID provided' ? 
           'No book was selected. Please choose a book from the list.' : 
           'Failed to load book details. The server might be unavailable.'}</p>
-        <a href="books.html" aria-label="Return to book list">Return to books list</a>
+        <a href="index.html" aria-label="Return to book list">Return to books list</a>
       </div>
     `;
   }
