@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/addItemsAdmin.css">
+    <script type="module" src="js/add_new_publisher_admin.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>Add new Publisher - Admin | Library</title>
+</head>
+
+<body>
+    <header>
+        <nav id="main-nav">
+            <div id="logo_div">
+                <a href="index.html" title="Home">
+                    <img src="images/logo.svg" alt="Library logo">
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html" title="Books List Page">Books</a></li>
+                <li><a href="authors.html" title="Authors List Page">Authors</a></li>
+            </ul>
+
+            <ul class="auth-links">
+                <li><a href="signup.html" title="sginup Page">Sign Up</a></li>
+                <li><a href="login.html" title="Login Page">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <header class="publisher-header">
+            <h2>Add new publisher:</h2>
+        </header>
+        <section id="publisher-section"></section>
+    </main>
+
+    <template id="Add-new-publisher-template">
+        <div>
+            <form id="publisher-form" class="publisher-edit-form">
+                <label>Publisher Name: <input type="text" name="publisher_name" required></label>
+                <button type="submit">Add Publisher</button>
+            </form>
+        </div>
+            <div id="publisher-added-message"></div>
+    </template>
+
+    <footer>
+        <p>&copy; Library Exam First Semester Project 2025</p>
+    </footer>
+</body>
+
+</html>
