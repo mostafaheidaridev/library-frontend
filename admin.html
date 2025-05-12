@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/admin.js"></script>
+    <link rel="stylesheet" href="css/addItemsAdmin.css">
+    <script type="module" src="js/add_new_publisher_admin.js"></script>
     <title>Admin | Library</title>
 </head>
 
@@ -30,12 +32,27 @@
         </nav>
     </header>
 
+
     <main>
-        <h2>Admin Dashboard</h2>
-        <div id="admin-content">
-            <!-- Admin content i here -->
-        </div>
+
+        <h2 id="title_of_AdminD">Admin Dashboard</h2>
+
+        <div id="admin-content"></div>
+        <header class="publisher-header">
+            <h2>Add new publisher:</h2>
+        </header>
+        <section id="publisher-section"></section>
     </main>
+
+    <template id="Add-new-publisher-template">
+        <div>
+            <form id="publisher-form" class="publisher-edit-form">
+                <label>Publisher Name: <input type="text" name="publisher_name" required></label>
+                <button type="submit">Add Publisher</button>
+            </form>
+        </div>
+        <div id="publisher-added-message"></div>
+    </template>
 
     <footer>
         <p>&copy; Library Exam First Semester Project 2025</p>
@@ -43,4 +60,3 @@
 </body>
 
 </html>
-

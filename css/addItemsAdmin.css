@@ -2,6 +2,11 @@
     padding: var(--spacing-xlarge);
   }
 
+  #title_of_AdminD {
+    display: flex;
+    justify-content: center;
+  }
+
   #publisher-form {
     display: flex;
     flex-direction: column;
