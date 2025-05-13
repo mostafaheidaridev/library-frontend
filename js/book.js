@@ -30,45 +30,100 @@ const showSingleBook = async () => {
     bookElement.querySelector('.book-year').textContent = fetchedBookData.publishing_year;
     bookElement.querySelector('.book-publisher').textContent = fetchedBookData.publishing_company;
     
-    // Handle loan functionality - only show for logged-in users
     const isLoggedIn = sessionStorage.getItem('user_id') && sessionStorage.getItem('user_token');
+    const isAdmin = sessionStorage.getItem('user_id') === '2679';
+
     const loanSection = bookElement.querySelector('#loan-section');
-    
-    if (isLoggedIn) {
+
+    if (isAdmin) {
+      // hide loan button for admin
+      loanSection.classList.add('hidden');
+      
+      const adminSection = bookElement.querySelector('#admin-section');
+      adminSection.classList.remove('hidden');
+      
+      try {
+        const baseUrlWithoutTrailingSlash = BASE_URL.endsWith('/') ? BASE_URL.slice(0, -1) : BASE_URL;
+        
+        const adminId = '2679';
+        const loansResponse = await fetch(`${baseUrlWithoutTrailingSlash}/admin/${adminId}/books/${bookId}`, {
+          headers: getAuthHeaders()
+        });
+        
+        if (!loansResponse.ok) {
+          throw new Error(`Failed to fetch loan history: ${loansResponse.status} ${loansResponse.statusText}`);
+        }
+        
+        const bookWithLoansData = await loansResponse.json();
+        
+        const adminBookInfo = adminSection.querySelector('h3');
+        adminBookInfo.textContent = `Admin View - Loan History for "${bookWithLoansData.title}"`;
+        
+        const loansData = bookWithLoansData.loans || [];
+        const loansTable = adminSection.querySelector('#loans-history-table tbody');
+        
+        if (loansData.length === 0) {
+          loansTable.innerHTML = '<tr><td colspan="4" class="no-data">No loan history for this book</td></tr>';
+        } else {
+          loansTable.innerHTML = '';
+          
+          loansData.forEach(loan => {
+            const row = document.createElement('tr');
+            
+            // Format date for better readability (API returns loan_date instead of start_date)
+            const loanDate = new Date(loan.loan_date).toLocaleDateString();
+            
+            row.innerHTML = `
+              <td>${loan.user_id}</td>
+              <td>${loanDate}</td>
+            `;
+            
+            loansTable.appendChild(row);
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching loan history:', error);
+        const adminSection = bookElement.querySelector('#admin-section');
+        adminSection.querySelector('.loan-history').innerHTML = `
+          <p class="error-message">Failed to load loan history: ${error.message}</p>
+          <p>This could be due to a CORS issue or the server not responding properly.</p>
+        `;
+      }
+    } else if (isLoggedIn) {
       loanSection.classList.remove('hidden');
       const loanButton = bookElement.querySelector('#loan-button');
       const loanMessage = bookElement.querySelector('#loan-message');
       
       loanButton.addEventListener('click', async () => {
-try {
-  loanButton.disabled = true;
-  loanButton.textContent = 'Processing...';
-  
-  const headers = getAuthHeaders();
-  const userId = sessionStorage.getItem('user_id');
-  
-  const loanResponse = await fetch(`${BASE_URL}/users/${userId}/books/${bookId}`, {
-    method: 'POST',
-    headers
-  });
-  
-  const result = await loanResponse.json();
-  
-  if (loanResponse.ok) {
-    loanMessage.textContent = 'Success! An access link to this e-book will be sent to your email address.';
-    loanMessage.className = 'loan-message success';
-    loanButton.style.display = 'none';
-  } else {
-    const errorMsg = result.error === "This user has still this book on loan" ?
-      'You already have a loan for this book.' : 
-      result.error || 'An error occurred while processing your loan.';
-    
-    loanMessage.textContent = errorMsg;
-    loanMessage.className = 'loan-message error';
-    loanButton.style.display = 'none';
-    loanButton.textContent = 'Loan This Book';
-  }
-} catch (error) {
+        try {
+          loanButton.disabled = true;
+          loanButton.textContent = 'Processing...';
+          
+          const headers = getAuthHeaders();
+          const userId = sessionStorage.getItem('user_id');
+          
+          const loanResponse = await fetch(`${BASE_URL}/users/${userId}/books/${bookId}`, {
+            method: 'POST',
+            headers
+          });
+          
+          const result = await loanResponse.json();
+          
+          if (loanResponse.ok) {
+            loanMessage.textContent = 'Success! An access link to this e-book will be sent to your email address.';
+            loanMessage.className = 'loan-message success';
+            loanButton.style.display = 'none';
+          } else {
+            const errorMsg = result.error === "This user has still this book on loan" ?
+              'You already have a loan for this book.' : 
+              result.error || 'An error occurred while processing your loan.';
+            
+            loanMessage.textContent = errorMsg;
+            loanMessage.className = 'loan-message error';
+            loanButton.style.display = 'none';
+            loanButton.textContent = 'Loan This Book';
+          }
+        } catch (error) {
           loanMessage.textContent = 'An error occurred while processing your loan.';
           loanMessage.className = 'loan-message error';
           loanButton.disabled = true;

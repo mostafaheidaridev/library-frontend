@@ -135,18 +135,79 @@ button:focus {
 }
 
 
-@media (min-width: 768px) {
-  .single-book {
-    flex-direction: row;
-    align-items: flex-start;
+/* Admin section styles */
+.admin-section {
+  margin-top: var(--spacing-large);
+  padding: var(--spacing-large);
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: var(--border-radius, 4px);
+  background-color: var(--background-light, #f9f9f9);
+}
+
+.admin-section h3 {
+  color: var(--primary-dark, #1e3a8a);
+  margin-bottom: var(--spacing-medium, 1rem);
+  font-size: 1.3rem;
+  border-bottom: 2px solid var(--primary-light, #3b82f6);
+  padding-bottom: var(--spacing-small, 0.5rem);
+}
+
+.loan-history {
+  overflow-x: auto; /* Makes table scrollable on small devices */
+  margin-bottom: var(--spacing-medium, 1rem);
+}
+
+.loans-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-medium, 1rem);
+  font-size: 0.95rem;
+}
+
+.loans-table th {
+  background-color: var(--primary-dark, #1e3a8a);
+  color: var(--text-light, #fff);
+  padding: var(--spacing-small, 0.5rem);
+  text-align: left;
+}
+
+.loans-table td {
+  padding: var(--spacing-small, 0.5rem);
+  border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+.loans-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.loans-table .no-data {
+  text-align: center;
+  font-style: italic;
+  color: var(--text-muted, #666);
+  padding: var(--spacing-medium, 1rem);
+}
+
+.error-message {
+  color: var(--error-color, #dc2626);
+  padding: var(--spacing-medium, 1rem);
+  border: 1px solid var(--error-light, #fecaca);
+  background-color: var(--error-bg, #fee2e2);
+  border-radius: var(--border-radius, 4px);
+  margin-top: var(--spacing-medium, 1rem);
+}
+
+
+@media (max-width: 768px) {
+  .admin-section {
+    padding: var(--spacing-medium, 1rem);
   }
   
-  .book-cover-large {
-    max-width: 300px;
+  .loans-table {
+    font-size: 0.85rem;
   }
   
-  .book-details {
-    flex: 1;
-    padding-left: var(--spacing-large);
+  .loans-table th, 
+  .loans-table td {
+    padding: 6px 4px;
   }
 }
