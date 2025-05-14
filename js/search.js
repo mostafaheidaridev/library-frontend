@@ -56,7 +56,7 @@ form.addEventListener('submit', async (e) => {
       bookInfo.insertBefore(coverImg, bookInfo.firstChild);
 
       const singleLink = card.querySelector('#single_view_link');
-      singleLink.href = `book.htm?id=${book.book_id}`;
+      singleLink.href = `book.html?id=${book.book_id}`;
 
       fragment.appendChild(card);
     }
