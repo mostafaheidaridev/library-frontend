@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/search.css">
     <script type="module" src="js/books.js"></script>
     <script type="module" src="js/search.js"></script>
     <link rel="stylesheet" href="css/books.css">
@@ -36,14 +37,23 @@
     <main>
         <h2>Books page</h2>
 
-        <search>
-            <form id="search-form">
-                <label for="search-input">Search for books by title:</label>
-                <input type="text" id="search-input" placeholder="Search here" aria-label="Search for books by title">
-                <button type="submit">Søg</i></button>
-            </form>
+        <section id="search-section">
+        <form id="search-form" role="search">
+            <label for="search-input" class="sr-only">Search for books by title</label>
+            <input
+            type="text"
+            id="search-input"
+            placeholder="Search for books by title"
+            >
+            <button type="submit" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            </button>
             <p id="search-error" class="error-message"></p>
-        </search>
+        </form>
+        </section>
 
         <section id="books-display-section">
 

@@ -8,12 +8,18 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-normal);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     color: var(--text-dark);
     background-color: var( --background-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: var(--font-weight-bold);
 }
 
 
@@ -28,12 +34,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: var(--spacing-medium) var(--spacing-xlarge);
-    max-width: var(--max-width);
+    max-width: var(--max-width-xlarge);
     margin: 0 auto;
 }
 
 #logo_div img {
-    height: 40px;
+    height: var(--min-height-xsmall);
 }
 
 #main-nav ul {
@@ -45,20 +51,19 @@ header {
 #main-nav a {
     color: var(--text-light);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: var(--font-weight-semi-bold);
     transition: color 0.3s ease;
     padding: var(--spacing-small) 0;
 }
 
 #main-nav a:hover {
-    color: var(--primary-light);
+    text-decoration: underline;
 }
-
 
 main {
     flex: 1;
     padding: var(--spacing-xlarge);
-    max-width: var(--max-width);
+    max-width: var(--max-width-xlarge);
     margin: 0 auto;
     width: 100%;
 }
@@ -73,7 +78,7 @@ footer {
 }
 
 footer p {
-    font-size: 0.9rem;
+    font-size: var(--font-size-small);
 }
 
 .hidden {

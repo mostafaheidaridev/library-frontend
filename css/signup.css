@@ -1,7 +1,7 @@
 @import "variables.css";
 
 .signup-container {
-  max-width: 450px;
+  max-width: var(--max-width-small);
   margin: auto;
   background-color: var(--background-white);
   border-radius: var(--border-radius);
@@ -19,8 +19,8 @@
 
 .signup-header h1 {
   margin: 0;
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: var(--font-size-xlarge);
+  font-weight: var(--font-weight-semi-bold);
 }
 
 .signup-form-container {
@@ -34,14 +34,14 @@
   margin-bottom: var(--spacing-large);
   border: 1px solid var(--shadow-color);
   border-radius: var(--border-radius);
-  font-size: 1rem;
+  font-size: var(--font-size-normal);
   background-color: var(--background-white);
 }
 
 #signup_form input:focus {
   outline: none;
   border-color: var(--primary-light);
-  box-shadow: var(--primary-light);
+  box-shadow: 0 0 0 2px var(--primary-light);
 }
 
 #signup_form button {
@@ -52,8 +52,8 @@
   color: var(--text-light);
   border: none;
   border-radius: var(--border-radius);
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -64,7 +64,7 @@
 
 @media (max-width: 768px) {
   .login-container {
-    margin: 2rem var(--spacing-medium);
+    margin: var(--spacing-xlarge) var(--spacing-medium);
   }
 
   .login-form-container {
