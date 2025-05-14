@@ -17,7 +17,7 @@
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background: rgba(0,0,0,0.5);
+  background: var(--overlay-background);
 
 }
 
@@ -26,11 +26,11 @@
   margin: 5% auto;
   padding: var(--spacing-large);
   border-radius: var(--border-radius);
-  max-width: 600px;
+  max-width: var(--max-width-small);
   box-shadow: 0 4px 15px var(--shadow-color);
   position: relative;
    #modal-title{
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-medium);
    }
 }
 
@@ -42,8 +42,8 @@
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-bold);
 }
 
 #author-books-display-modal .close-modal:hover {
@@ -51,7 +51,7 @@
 }
 
 .random-book{
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-medium);
 }
 
 .random.author {
@@ -75,8 +75,8 @@
 }
 
 .author-info .link {
-  min-width: 120px;
-  min-height: 60px;
+  min-width: var(--min-width-small);
+  min-height: var(--min-height-small);
   margin-top: auto;
   padding: var(--spacing-small) var(--spacing-medium);
   background-color: var(--primary-dark);
@@ -98,7 +98,7 @@
   color: var(--error-red-color);
   text-align: center;
   padding: var(--spacing-large);
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
 }
 
 
