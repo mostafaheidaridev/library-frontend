@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     color: var(--text-dark);
-    background-color: var( --background-white);
+    background-color: var(--background-gray);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,6 +54,9 @@ header {
     font-weight: var(--font-weight-semi-bold);
     transition: color 0.3s ease;
     padding: var(--spacing-small) 0;
+    font-size: var(--font-size-medium);
+    min-width: var(--min-width-xsmall);
+    min-height: var(--max-height-xsmall);
 }
 
 #main-nav a:hover {
