@@ -2,13 +2,21 @@ import { BASE_URL } from "./info.js";
 
 const showRandomBooks = async () => {
   const NUMBER_OF_BOOKS = 6;
-
+  const booksSection = document.getElementById('books-display-section');
+  
   try {
     const response = await fetch(`${BASE_URL}/books?n=${NUMBER_OF_BOOKS}`);
     if (!response.ok) throw new Error('Network response was not ok');
     
     const data = await response.json();
     const books = data.books || data.results || data;
+
+    booksSection.innerHTML = `
+            <div class="loading-state">
+                <p>Loading books...</p>
+                <div class="loading-spinner"></div>
+            </div>
+        `;
 
     const detailedBooks = await Promise.all(
       books.map(book =>
@@ -18,6 +26,9 @@ const showRandomBooks = async () => {
           .catch(() => null)
       )
     );
+
+    // Clear loading state
+    booksSection.innerHTML = '';
 
     const fragment = document.createDocumentFragment();
     const bookCardTemplate = document.querySelector('.book-card').content;

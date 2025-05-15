@@ -34,7 +34,16 @@
       </nav>
     </header>
     <main>
-        <h2>Author page</h2>
+      <h2>Authors</h2>
+
+      <div class="searchable-select">
+          <input type="text" 
+                 class="search-input" 
+                 name="author_search" 
+                 placeholder="Search authors..." 
+                 aria-label="Search authors">
+          <div class="search-results"></div>
+      </div>
 
         <section id="author-display-section">
 
@@ -66,8 +75,6 @@
               <h2></h2>
               <p>Written by: <span class="author"></span> - <span class="year"></span></p>
               <p>Published by: <span class="publisher"></span></p>
-            </div>
-            <div>
               <!-- <a class="link" href="">Read more</a> -->
             </div>
           </div>
