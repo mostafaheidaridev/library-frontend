@@ -1,0 +1,74 @@
+@import 'variables.css';
+
+#search-section {
+  margin-top: var(--spacing-medium);
+  margin-bottom: var(--spacing-xlarge);
+}
+
+#search-form {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-medium);
+}
+
+#search-input {
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-normal);
+  flex: 1;
+  max-width: var(--max-width-xsmall);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+#search-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid var(--text-muted);
+}
+
+#search-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-small) var(--spacing-medium);
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#search-form button:hover {
+  background-color: var(--primary-light);
+}
+
+/* Skjuler label tag, så det kun bruges for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 378px) {
+  #search-input {
+    max-width: 100%;
+  }
+
+  #search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #search-form button {
+    width: 100%;
+    max-width: var(--max-width-mini);
+  }
+}

@@ -35,6 +35,8 @@ loginForm.addEventListener('submit', async (event) => {
         if (data.user_id && data.auth_token) {
             sessionStorage.setItem('user_id', data.user_id);
             sessionStorage.setItem('user_token', data.auth_token);
+            
+            localStorage.setItem('user_email', email);
 
             updateAuthNavigation();
 

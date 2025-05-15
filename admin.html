@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/addItemsAdmin.css">
     <script type="module" src="js/add_new_publisher_admin.js"></script>
     <script type="module" src="js/add_new_author_admin.js"></script>
+    <script type="module" src="js/add_new_book_admin.js"></script>
     <title>Admin | Library</title>
 </head>
 
@@ -36,30 +37,37 @@
     
 
     <main>
-        <header class="author-header">
-            <h2>Add new author:</h2>
-        </header>
-        <section id="author-section"></section>
-        
-        <template id="Add-new-author-template">
-            <div>
-                <form id="author-form" class="author-edit-form">
-                    <label>First Name: <input type="text" name="first_name" required></label>
-                    <label>Last Name: <input type="text" name="last_name" required></label>
-                    <button type="submit">Add Author</button>
-                </form>
-            </div>
-            <div id="author-added-message"></div>
-        </template>
+        <div>
+            <section id="author-section">
+                <header class="author-header">
+                    <h2>Add new author:</h2>
+                </header>
+            </section>
+        <!-- <div id="admin-content"></div> -->
+            <section id="publisher-section">
+                <header class="publisher-header">
+                    <h2>Add new publisher:</h2>
+                </header>
+            </section>
+        </div>
 
-       
-
-        <div id="admin-content"></div>
-        <header class="publisher-header">
-            <h2>Add new publisher:</h2>
-        </header>
-        <section id="publisher-section"></section>
+        <section id="book-section">
+            <header class="book-header">
+                <h2>Add new book:</h2>
+            </header>
+        </section>
     </main>
+
+    <template id="Add-new-author-template">
+        <div>
+            <form id="author-form" class="author-edit-form">
+                <label>First Name: <input type="text" name="first_name" required></label>
+                <label>Last Name: <input type="text" name="last_name" required></label>
+                <button type="submit">Add Author</button>
+            </form>
+        </div>
+        <div id="author-added-message"></div>
+    </template>
 
     <template id="Add-new-publisher-template">
         <div>
@@ -69,6 +77,63 @@
             </form>
         </div>
         <div id="publisher-added-message"></div>
+    </template>
+
+    <template id="Add-new-book-template">
+        <div>
+            <form id="book-form" class="book-edit-form">
+                <label>Book Title: <input type="text" name="title" required></label>
+                
+                <label for="author-select">Author:</label>
+                <div class="select-or-add">
+                    <div class="searchable-select">
+                        <input type="text" class="search-input" name="author_search" placeholder="Search authors..." aria-label="Search authors">
+                        <input type="hidden" name="author_id" required>
+                        <div class="search-results"></div>
+                    </div>
+                    <p>Either add a New Author og Search for existing one</p>
+                    <button type="button" id="toggle-new-author">+ Add New Author</button>
+                </div>
+                
+                <div id="new-author-fields" class="hidden">
+                    <label>Author First Name: <input type="text" name="author_first_name"></label>
+                    <label>Author Last Name: <input type="text" name="author_last_name"></label>
+                </div>
+    
+                <label for="publisher-select">Publisher:</label>
+                <div class="select-or-add">
+                    <div class="searchable-select">
+                        <input type="text" class="search-input" name="publisher_search" placeholder="Search publishers..." aria-label="Search publishers">
+                        <input type="hidden" name="publisher_id" required>
+                        <div class="search-results"></div>
+                    </div>
+                    <p>Either add a New Publisher og Search for existing one</p>
+                    <button type="button" id="toggle-new-publisher">+ Add New Publisher</button>
+                </div>
+                
+                <div id="new-publisher-fields" class="hidden">
+                    <label>Publisher Name: <input type="text" name="publisher_name"></label>
+                </div>
+    
+                <label>Publishing Year: 
+                    <input 
+                    id="year-book"
+                    type="number" 
+                    name="publishing_year" 
+                    required 
+                    min="1000" 
+                    max="2025"
+                    step="1"
+                    inputmode="numeric"
+                    pattern="\d{4}"
+                    title="Please enter a valid 4-digit year"
+                >
+                </label>
+                
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+        <div id="book-added-message"></div>
     </template>
 
     <footer>
