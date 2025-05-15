@@ -10,6 +10,18 @@
   padding: 0;
   display: flex;
   gap: var(--spacing-small);
+  min-height: var(--min-width-xsmall);
+  min-height: var(--min-height-xsmall);
+}
+
+.breadcrumb ul, li, a {
+  text-decoration: none;
+  font-size: var(--font-size-medium);
+  min-width: var(--min-width-xsmall);
+  min-height: var(--max-height-xsmall);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .breadcrumb li::after{
@@ -77,6 +89,21 @@
   text-align: center;
   transition: background-color 0.2s;
 }
+
+
+#loan-button {
+  background-color: var(--accent-green);
+}
+
+#loan-button:hover {
+  background-color: var(--accent-hover);
+}
+
+.back-button {
+  margin-top: auto;
+}
+
+
 
 .back-button:hover,
 .back-button:focus,

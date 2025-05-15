@@ -48,7 +48,7 @@
   display: block;
   width: 100%;
   padding: var(--spacing-medium);
-  background-color: var(--primary-dark);
+  background-color: var(--accent-green);
   color: var(--text-light);
   border: none;
   border-radius: var(--border-radius);
@@ -59,7 +59,7 @@
 }
 
 #signup_form button:hover {
-  background-color: var(--primary-light);
+  background-color: var(--accent-hover);
 }
 
 @media (max-width: 768px) {

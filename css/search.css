@@ -19,6 +19,7 @@
   font-size: var(--font-size-normal);
   flex: 1;
   max-width: var(--max-width-xsmall);
+  min-height: var(--input-height-search);
   box-shadow: 0 2px 4px var(--shadow-color);
 }
 
@@ -39,6 +40,8 @@
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  min-width: var(--min-width-xsmall);
+  min-height: var(--min-height-xsmall);
 }
 
 #search-form button:hover {
