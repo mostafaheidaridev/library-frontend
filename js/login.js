@@ -40,8 +40,18 @@ loginForm.addEventListener('submit', async (event) => {
 
             updateAuthNavigation();
 
+            // Check if there's a redirect URL stored
+            const redirectUrl = sessionStorage.getItem('redirect_after_login');
+            
             setTimeout(() => {
-                window.location.href = data.user_id === 2679 ? "admin.html" : "user_profile.html";
+                if (redirectUrl) {
+                    
+                    sessionStorage.removeItem('redirect_after_login');
+                    window.location.href = redirectUrl;
+                } else {
+                   
+                    window.location.href = data.user_id === 2679 ? "admin.html" : "user_profile.html";
+                }
             }, 100);
         } else {
             showError(data.error || 'Login failed. Please try again.');
