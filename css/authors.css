@@ -2,7 +2,7 @@
 
 
 #author-display-section {
-  display: grid;
+  display: block;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: var(--spacing-xlarge);
   margin-top: var(--spacing-small);
@@ -68,10 +68,17 @@
 }
 
 .author-info {
-  padding: var(--spacing-medium);
+  padding: var(--spacing-medium) auto;
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+.author-info .author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  margin-bottom: var(--spacing-small);
 }
 
 .author-info .link {
@@ -101,6 +108,71 @@
   font-weight: var(--font-weight-bold);
 }
 
+.letter-section {
+  margin: var(--spacing-large) 0;
+}
+
+.letter-heading {
+  color: var(--primary-dark);
+  font-size: var(--font-size-xlarge);
+  padding: var(--spacing-medium);
+  border-bottom: 2px solid var(--primary-light);
+  margin-bottom: var(--spacing-medium);
+}
+
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--spacing-xlarge);
+  margin: auto var(--spacing-medium);
+  align-items: center;
+}
+
+/* Search */
+.searchable-select {
+  position: relative;
+  max-width: 300px;
+  margin: var(--spacing-medium);
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-medium);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-normal);
+}
+
+.search-results {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.search-results.active {
+  display: block;
+}
+
+.search-result-item {
+  padding: var(--spacing-medium);
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: var(--primary-light);
+  color: var(--text-light);
+}
+/* Repsonsivness */
 
 @media (max-width: 768px) {
   #books-display-section {
