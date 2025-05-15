@@ -90,6 +90,7 @@
   transition: background-color 0.2s;
 }
 
+
 #loan-button {
   background-color: var(--accent-green);
 }
@@ -102,6 +103,8 @@
   margin-top: auto;
 }
 
+
+
 .back-button:hover,
 .back-button:focus,
 button:hover,
@@ -113,12 +116,25 @@ button:focus {
 .error-message {
   background-color: var(--error-bg-color);
   color: var(--error-text-color);
-  padding: var(--spacing-medium);
+  border: 1px solid var(--error-border-color);
+  
   border-radius: var(--border-radius);
   border-left: 4px solid var(--error-border-color);
-  margin: var(--spacing-large) auto;
-  max-width: var(--max-width-small);
+
+  padding: var(--spacing-medium);
+  margin-top: var(--spacing-medium);
+  
+  font-size: var(--font-size-normal);
+}
+
+.search-section .error-message {
   text-align: center;
+  max-width: var(--max-width-small);
+  margin: var(--spacing-large) auto;
+}
+
+.admin-section .error-message {
+  margin-bottom: var(--spacing-medium);
 }
 
 .error-message a {
@@ -207,16 +223,6 @@ button:focus {
   padding: var(--spacing-medium);
 }
 
-.error-message {
-  color: var(--error-red-color);
-  padding: var(--spacing-medium);
-  border: 1px solid var(--error-border-color);
-  background-color: var(--error-bg-color);
-  border-radius: var(--border-radius);
-  margin-top: var(--spacing-medium);
-}
-
-
 @media (max-width: 768px) {
   .admin-section {
     padding: var(--spacing-medium);
@@ -229,5 +235,23 @@ button:focus {
   .loans-table th, 
   .loans-table td {
     padding: 6px 4px;
+  }
+}
+
+@media (max-width: 450px) {
+  .loans-table th:nth-child(3),
+  .loans-table td:nth-child(3) {
+    display: none;
+  }
+  
+  .loans-table th,
+  .loans-table td {
+    width: 50%;
+  }
+  
+  .loans-table th, 
+  .loans-table td {
+    padding: 4px;
+    font-size: 0.9rem;
   }
 }
