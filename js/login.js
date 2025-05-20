@@ -40,7 +40,6 @@ loginForm.addEventListener('submit', async (event) => {
 
             updateAuthNavigation();
 
-            // Check if there's a redirect URL stored
             const redirectUrl = sessionStorage.getItem('redirect_after_login');
             
             setTimeout(() => {
