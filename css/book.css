@@ -28,7 +28,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 400px; /* juster efter behov */
+  max-width: var(--max-width-small);
   display: inline-block;
 }
 
@@ -110,8 +110,6 @@
 .back-button {
   margin-top: auto;
 }
-
-
 
 .back-button:hover,
 .back-button:focus,
@@ -250,7 +248,7 @@ button:focus {
   }
 
   .breadcrumb-title {
-    max-width: 300px;
+    max-width: var(--max-width-xsmall);
   }
 }
 
@@ -272,6 +270,6 @@ button:focus {
   }
 
   .breadcrumb-title {
-    max-width: 150px;
+    max-width: var(--max-width-xxsmall);
   }
 }
