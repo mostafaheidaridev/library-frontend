@@ -48,6 +48,11 @@
   background-color: var(--primary-light);
 }
 
+#search-form button:focus {
+  outline: 2px solid var(--text-dark);
+  outline-offset: 2px;
+}
+
 /* Skjuler label tag, så det kun bruges for screen readers */
 .sr-only {
   position: absolute;

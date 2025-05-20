@@ -63,6 +63,11 @@
   background-color: var(--primary-light);
 }
 
+#single_view_link:focus{
+  outline: 2px solid var(--text-dark);
+  outline-offset: 2px;
+}
+
 
 .error-message {
   color: var(--error-red-color);

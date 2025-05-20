@@ -96,6 +96,7 @@
   font-size: var(--font-size-normal);
   text-align: center;
   transition: background-color 0.2s;
+  cursor: pointer;
 }
 
 
@@ -107,17 +108,15 @@
   background-color: var(--accent-hover);
 }
 
-.back-button {
-  margin-top: auto;
+.back-button:hover {
+  background-color: var(--primary-light);
 }
 
-.back-button:hover,
-.back-button:focus,
-button:hover,
-button:focus {
-  background-color: var(--primary-light);
-  cursor: pointer;
-}
+button:focus,
+.back-button:focus {
+outline: 2px solid var(--text-dark);
+outline-offset: 2px;
+} 
 
 .error-message {
   background-color: var(--error-bg-color);

@@ -155,6 +155,11 @@
   max-width: 100px;
 }
 
+button:focus {
+    outline: 2px solid var(--text-dark);
+    outline-offset: 2px;
+}
+
 /* Author Form Styles */
 #author-form {
   display: flex;

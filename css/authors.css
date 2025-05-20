@@ -100,6 +100,11 @@
   background-color: var(--primary-light);
 }
 
+.author-info .link:focus {
+  outline: 2px solid var(--text-dark);
+  outline-offset: 2px;
+}
+
 
 .error-message {
   color: var(--error-red-color);

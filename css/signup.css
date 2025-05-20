@@ -62,6 +62,11 @@
   background-color: var(--accent-hover);
 }
 
+#signup_form button:focus {
+    outline: 2px solid var(--text-dark);
+    outline-offset: 2px;
+}
+
 @media (max-width: 768px) {
   .login-container {
     margin: var(--spacing-xlarge) var(--spacing-medium);
