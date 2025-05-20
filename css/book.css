@@ -1,7 +1,7 @@
 @import 'variables.css';
 
 .breadcrumb{
-  margin: var(--spacing-medium) var(--spacing-xlarge);
+  margin: 0 var(--spacing-xlarge) var(--spacing-xlarge);
   font-size: var(--font-size-small);
 }
 
@@ -22,6 +22,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.breadcrumb-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 400px; /* juster efter behov */
+  display: inline-block;
 }
 
 .breadcrumb li::after{
@@ -236,6 +244,14 @@ button:focus {
   .loans-table td {
     padding: 6px 4px;
   }
+
+  .breadcrumb{
+    margin-left: 0;
+  }
+
+  .breadcrumb-title {
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 450px) {
@@ -253,5 +269,9 @@ button:focus {
   .loans-table td {
     padding: 4px;
     font-size: 0.9rem;
+  }
+
+  .breadcrumb-title {
+    max-width: 150px;
   }
 }
