@@ -3,7 +3,7 @@
 
 .login-container {
     max-width: var(--max-width-small);
-    margin: 5rem auto;
+    margin: 5rem auto !important;
     background-color: var(--background-white);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 15px var(--shadow-color);
@@ -49,7 +49,7 @@
     display: block;
     width: 100%;
     padding: var(--spacing-medium);
-    background-color: var(--primary-dark);
+    background-color: var(--accent-green);
     color: var(--text-light);
     border: none;
     border-radius: var(--border-radius);

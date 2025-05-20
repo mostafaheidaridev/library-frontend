@@ -13,6 +13,7 @@
     <script type="module" src="js/add_new_publisher_admin.js"></script>
     <script type="module" src="js/add_new_author_admin.js"></script>
     <script type="module" src="js/add_new_book_admin.js"></script>
+    <script type="module" src="js/nav.js"></script>
     <title>Admin | Library</title>
 </head>
 
@@ -32,6 +33,27 @@
 
             <ul class="auth-links">
             </ul>
+            
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="mobile-menu-container">
+
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html" title="Books List Page">Books</a></li>
+                    <li><a href="authors.html" title="Authors List Page">Authors</a></li>
+                    <li><a href="admin.html" title="Admin Page">Admin</a></li>
+                </ul>
+
+                <ul class="mobile-auth-links">
+                    <li><a href="#" id="logout-link-mobile" title="Logout">Logout</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-overlay"></div>
         </nav>
     </header>
 

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/styles.css">
-   
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/nav.js"></script>
     <link rel="stylesheet" href="css/search.css">
     <script type="module" src="js/books.js"></script>
     <script type="module" src="js/search.js"></script>
@@ -33,6 +32,26 @@
                 <li><a href="signup.html" title="sginup Page">Sign Up</a></li>
                 <li><a href="login.html" title="Login Page">Login</a></li>
             </ul>
+
+            <div class="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="mobile-menu-container">
+                <ul class="mobile-nav-links">
+                    <li><a href="index.html" title="Books List Page">Books</a></li>
+                    <li><a href="authors.html" title="Authors List Page">Authors</a></li>
+                </ul>
+
+                <ul class="mobile-auth-links">
+                    <li><a href="signup.html" title="sginup Page">Sign Up</a></li>
+                    <li><a href="login.html" title="Login Page">Login</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-overlay"></div>
         </nav>
     </header>
 
@@ -40,21 +59,18 @@
         <h2>Books</h2>
 
         <section id="search-section">
-        <form id="search-form" role="search">
-            <label for="search-input" class="sr-only">Search for books by title</label>
-            <input
-            type="text"
-            id="search-input"
-            placeholder="Search for books by title"
-            >
-            <button type="submit" aria-label="Search">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            </button>
-            <p id="search-error" class="error-message"></p>
-        </form>
+            <form id="search-form" role="search">
+                <label for="search-input" class="sr-only">Search for books by title</label>
+                <input type="text" id="search-input" placeholder="Search for books by title">
+                <button type="submit" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="white"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <p id="search-error" class="error-message"></p>
+            </form>
         </section>
 
         <section id="books-display-section">
@@ -64,18 +80,18 @@
 
     <template class="book-card">
         <article class="random-book">
-          <div class="book-info">
-            <div>
-              <h2></h2>
-              <p>Written by: <span class="author"></span> - <span class="year"></span></p>
-              <p>Published by: <span class="publisher"></span></p>
+            <div class="book-info">
+                <div>
+                    <h2></h2>
+                    <p>Written by: <span class="author"></span> - <span class="year"></span></p>
+                    <p>Published by: <span class="publisher"></span></p>
+                </div>
+                <div>
+                    <a class="link" id="single_view_link" href="">Read more</a>
+                </div>
             </div>
-            <div>
-              <a class="link" id="single_view_link" href="">Read more</a>
-            </div>
-          </div>
         </article>
-      </template>
+    </template>
 
     <footer>
         <p>&copy; Library Exam First Semester Project 2025</p>
@@ -83,4 +99,3 @@
 </body>
 
 </html>
-
