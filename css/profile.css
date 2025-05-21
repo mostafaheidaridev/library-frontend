@@ -126,9 +126,23 @@ main h2 {
 }
 
 @media (max-width: 768px) {
-    .address {
-        display: flex !important;
-        flex-wrap: wrap !important;
+    #address {
+        display: flex;
+        
+    }
+    .address{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #email {
+        display: flex;
+        
+    }
+    .email{
+        display: flex;
+        flex-wrap: wrap;
     }
     
 }
+
+
