@@ -49,6 +49,11 @@ main h2 {
     background-color: var(--primary-light);
 }
 
+#edit-profile-btn:focus {
+    outline: 2px solid var(--text-dark);
+    outline-offset: 2px;
+}
+
 #delete-profile-btn {
     margin-top: var(--spacing-large);
     padding: var(--spacing-medium) var(--spacing-large);
@@ -64,6 +69,11 @@ main h2 {
 
 #delete-profile-btn:hover {
     background-color: var(--error-red-hover-color);
+}
+
+#delete-profile-btn:focus {
+    outline: 2px solid var(--text-dark);
+    outline-offset: 2px;
 }
 
 .profile-edit-form {

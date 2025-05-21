@@ -120,6 +120,17 @@ async function showBooksModal(authorId, authorName) {
     // Show loading state immediately
     modal.style.display = 'block';
     modalTitle.textContent = `Loading books by ${authorName}...`;
+    closeBtn.focus(); // Sørg for at luk-knappen får fokus
+
+    document.addEventListener('keydown', escKeyHandler);
+
+    function escKeyHandler(event) {
+    if (event.key === 'Escape') {
+        modal.style.display = 'none';
+        document.removeEventListener('keydown', escKeyHandler);
+    }
+    }
+    
     booksList.innerHTML = `
         <div class="loading-state">
             <p>Loading books...</p>

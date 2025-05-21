@@ -60,7 +60,12 @@
 }
 
 #login_form button:hover {
-    background-color: var(--primary-light);
+    background-color: var(--accent-hover);
+}
+
+#login_form button:focus {
+    outline: 2px solid var(--text-dark);
+    outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
