@@ -226,7 +226,6 @@ button:focus {
 
 .author-header h2 {
   margin: 0;
-  font-size: 1.8rem;
   font-weight: 600;
   text-align: center;
 }
@@ -258,6 +257,7 @@ button:focus {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: auto;
+    gap: 1rem;
   }
   #author-section{
     grid-column: 1/2;
@@ -270,4 +270,3 @@ button:focus {
     grid-row: 1/2;
   }
 }
-

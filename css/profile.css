@@ -16,7 +16,7 @@ main h2 {
     border-radius: var(--border-radius);
     box-shadow: 0 2px 8px var(--shadow-color);
     padding: var(--spacing-xlarge);
-    max-width: var(--max-width-small);
+    max-width: var(--max-width-medium);
     margin: var(--spacing-xlarge) auto;
 }
 
@@ -123,4 +123,12 @@ main h2 {
     margin-top: var(--spacing-large);
     font-weight: bold;
     font-size: var(--font-size-normal);
+}
+
+@media (max-width: 768px) {
+    .address {
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    
 }
