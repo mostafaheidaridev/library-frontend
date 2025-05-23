@@ -52,11 +52,12 @@
       </nav>
     </header>
 
-    <main role="main">
+    <main>
       <nav aria-label="Breadcrumb" class="breadcrumb">
         <ul>
           <li><a href="index.html">Books</a></li>
-          <li li id="breadcrumb-current-book" class="breadcrumb-title" aria-current="page"></li>
+          <!-- aria-current angiver for skærmlæsere, hvilken del af breadcrumb man befinder sig på -->
+          <li id="breadcrumb-current-book" class="breadcrumb-title" aria-current="page"></li>
         </ul>
       </nav>
 
@@ -64,7 +65,7 @@
 
       <template id="book-detail-template">
         <div class="single-book">
-          <img class="book-cover-large" alt="" aria-labelledby="book-title" />
+          <img class="book-cover-large" alt="Book cover"/>
           <div class="book-details">
             <h2 class="book-title" id="book-title"></h2>
             <p><strong>Author:</strong> <span class="book-author"></span></p>
@@ -99,13 +100,13 @@
               </div>
             </div>
 
-            <a href="index.html" class="back-button" aria-label="Return to book list">Back to books</a>
+            <a href="index.html" class="back-button">Back to books</a>
           </div>
         </div>
       </template>
     </main>
 
-    <footer role="contentinfo">
+    <footer>
       <p>&copy; Library Exam First Semester Project 2025</p>
     </footer>
   </body>

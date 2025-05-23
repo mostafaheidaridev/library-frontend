@@ -53,6 +53,8 @@ const showRandomBooks = async () => {
       // navigate to single book view
       const singleLink = card.querySelector('#single_view_link');
       singleLink.href = `book.html?id=${fetchedBookData.book_id}`;
+      // add aria label til book single view, der fortæller bogens titel
+      singleLink.setAttribute('aria-label', `Read more about ${fetchedBookData.title}`);
 
       fragment.appendChild(card);
     });

@@ -46,10 +46,13 @@ const showAllAuthors = async () => {
                 authorSpan.textContent = author.author_name;
 
                 const link = card.querySelector('.link');
+                link.title = author.author_name; // Tooltip ved hover
+                link.setAttribute('aria-label', author.author_name); // For skærmlæsere
                 link.addEventListener('click', async (e) => {
                     e.preventDefault();
                     await showBooksModal(author.author_id, author.author_name);
                 });
+
 
                 authorGrid.appendChild(card);
             });
