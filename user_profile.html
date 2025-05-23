@@ -56,12 +56,15 @@
     </header>
 
     <main>
-        <h2>User Profile</h2>
-        <section id="profile-section"></section>
+        <!-- Tilføjet landmark-role, det gør det muligt for skærmlæsere at springe direkte til profilsektionen -->
+        <section id="profile-section" aria-labelledby="profile-heading">
+            <h2 id="profile-heading">User Profile</h2>
+        </section>
     </main>
 
     <template id="profile-readonly-template">
-        <div class="profile-info">
+        <!-- Lavet til section i stedet for div, tilføjet aria-live da det gør det lettere for folk med skærmlæser at få besked når profiloplysningerne indsættes automatisk -->
+        <section class="profile-info" aria-live="polite" aria-labelledby="profile-heading">
             <p><strong>First Name:</strong> <span class="first_name"></span></p>
             <p><strong>Last Name:</strong> <span class="last_name"></span></p>
             <p id="email">
@@ -74,10 +77,11 @@
             </p>
             <p><strong>Phone:</strong> <span class="phone_number"></span></p>
             <p><strong>Birth Date:</strong> <span class="birth_date"></span></p>
-            <button id="edit-profile-btn">Edit Profile</button>
-            <button id="delete-profile-btn">Delete Profile</button>
+            <!-- Tilføjet aria labels, da det for folk med skærmlæser, kan være uklart hvad der redigeres eller slettes -->
+            <button id="edit-profile-btn" aria-label="Edit your profile information">Edit Profile</button>
+            <button id="delete-profile-btn" aria-label="Delete your profile">Delete Profile</button>
             <div id="profile-message"></div>
-        </div>
+        </section>
     </template>
 
     <template id="profile-template">
