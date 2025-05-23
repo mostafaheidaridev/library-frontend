@@ -115,99 +115,114 @@ function displaySearchResults(authors) {
 }
 
 async function showBooksModal(authorId, authorName) {
-    const modal = document.getElementById('author-books-display-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const booksList = document.getElementById('modal-books-list');
-    const closeBtn = document.getElementById('close-modal-btn');
+  const modal = document.getElementById('author-books-display-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const booksList = document.getElementById('modal-books-list');
+  const closeBtn = document.getElementById('close-modal-btn');
 
-    // Show loading state immediately
-    modal.style.display = 'block';
-    modalTitle.textContent = `Loading books by ${authorName}...`;
-    closeBtn.focus(); // Sørg for at luk-knappen får fokus
+  // Show modal and set initial state
+  modal.style.display = 'block';
+  modalTitle.textContent = `Loading books by ${authorName}...`;
+  closeBtn.focus(); // Set focus on close button for accessibility
 
-    document.addEventListener('keydown', escKeyHandler);
+  // Trap focus on close button (only focusable element)
+  function trapFocus(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      closeBtn.focus();
+    }
+  }
+  modal.addEventListener('keydown', trapFocus);
 
-    function escKeyHandler(event) {
+  // ESC key closes modal
+  function escKeyHandler(event) {
     if (event.key === 'Escape') {
-        modal.style.display = 'none';
-        document.removeEventListener('keydown', escKeyHandler);
+      modal.style.display = 'none';
+      document.removeEventListener('keydown', escKeyHandler);
+      modal.removeEventListener('keydown', trapFocus); // Clean up
     }
-    }
-    
-    booksList.innerHTML = `
+  }
+  document.addEventListener('keydown', escKeyHandler);
+
+  // Initial loading spinner
+  booksList.innerHTML = `
+    <div class="loading-state">
+      <p>Loading books...</p>
+      <div class="loading-spinner"></div>
+    </div>
+  `;
+
+  try {
+    const [booksResponse, bookCardTemplate] = await Promise.all([
+      fetch(`${BASE_URL}/books?a=${authorId}`),
+      document.querySelector('.book-card')
+    ]);
+
+    const books = await booksResponse.json();
+
+    modalTitle.textContent = `Books by ${authorName}`;
+    booksList.innerHTML = '';
+
+    if (Array.isArray(books) && books.length > 0) {
+      booksList.innerHTML = `
         <div class="loading-state">
-            <p>Loading books...</p>
-            <div class="loading-spinner"></div>
+          <p>Loading book details...</p>
+          <div class="loading-spinner"></div>
         </div>
-    `;
+      `;
 
-    try {
-        // Fetch books and template in parallel
-        const [booksResponse, bookCardTemplate] = await Promise.all([
-            fetch(`${BASE_URL}/books?a=${authorId}`),
-            document.querySelector('.book-card')
-        ]);
+      const detailedBooks = await Promise.all(
+        books.map(book =>
+          fetch(`${BASE_URL}/books/${book.book_id}`)
+            .then(res => res.ok ? res.json() : null)
+            .catch(() => null)
+        )
+      );
 
-        const books = await booksResponse.json();
+      booksList.innerHTML = '';
 
-        modalTitle.textContent = `Books by ${authorName}`;
-        booksList.innerHTML = '';
-        
-        if (Array.isArray(books) && books.length > 0) {
-            // Keep loading state while fetching detailed books
-            booksList.innerHTML = `
-                <div class="loading-state">
-                    <p>Loading book details...</p>
-                    <div class="loading-spinner"></div>
-                </div>
-            `;
+      detailedBooks.forEach(fetchedBookData => {
+        if (!fetchedBookData) return;
+        const card = bookCardTemplate.content.cloneNode(true);
+        const bookInfo = card.querySelector('.book-info');
 
-            const detailedBooks = await Promise.all(
-                books.map(book =>
-                    fetch(`${BASE_URL}/books/${book.book_id}`)
-                        .then(res => res.ok ? res.json() : null)
-                        .catch(() => null)
-                )
-            );
+        card.querySelector('h2').textContent = fetchedBookData.title;
+        card.querySelector('.author').textContent = authorName;
+        card.querySelector('.year').textContent = fetchedBookData.publishing_year || '';
+        card.querySelector('.publisher').textContent = fetchedBookData.publishing_company || '';
 
-            // Clear loading state before adding books
-            booksList.innerHTML = '';
+        const coverImg = document.createElement('img');
+        coverImg.src = fetchedBookData.cover || 'images/logo.svg';
+        coverImg.alt = fetchedBookData.title;
+        coverImg.className = 'book-cover';
+        bookInfo.insertBefore(coverImg, bookInfo.firstChild);
 
-            detailedBooks.forEach(fetchedBookData => {
-                if (!fetchedBookData) return;
-                const card = bookCardTemplate.content.cloneNode(true);
-                const bookInfo = card.querySelector('.book-info');
-
-                card.querySelector('h2').textContent = fetchedBookData.title;
-                card.querySelector('.author').textContent = authorName;
-                card.querySelector('.year').textContent = fetchedBookData.publishing_year || '';
-                card.querySelector('.publisher').textContent = fetchedBookData.publishing_company || '';
-
-                
-                const coverImg = document.createElement('img');
-                coverImg.src = fetchedBookData.cover || 'images/logo.svg';
-                coverImg.alt = fetchedBookData.title;
-                coverImg.className = 'book-cover';
-                bookInfo.insertBefore(coverImg, bookInfo.firstChild);
-
-                booksList.appendChild(card);
-            });
-        } else {
-            booksList.innerHTML = '<p>No books found for this author.</p>';
-        }
-    // eslint-disable-next-line no-unused-vars
-    } catch (er) {
-        booksList.innerHTML = '<p class="error-message">Failed to load books.</p>';
+        booksList.appendChild(card);
+      });
+    } else {
+      booksList.innerHTML = '<p>No books found for this author.</p>';
     }
-    window.onclick = (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    };
+    // eslint-disable-next-line no-unused-vars
+  } catch (er) {
+    booksList.innerHTML = '<p class="error-message">Failed to load books.</p>';
+  }
 
-    closeBtn.onclick = () => {
-        modal.style.display = 'none';
-    };
+  // Close modal on background click
+  window.onclick = (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      document.removeEventListener('keydown', escKeyHandler);
+      modal.removeEventListener('keydown', trapFocus);
+    }
+  };
+
+  // Close modal on button click
+  closeBtn.onclick = () => {
+    modal.style.display = 'none';
+    document.removeEventListener('keydown', escKeyHandler);
+    modal.removeEventListener('keydown', trapFocus);
+  };
 }
+
 
 showAllAuthors();

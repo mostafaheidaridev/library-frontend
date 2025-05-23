@@ -100,7 +100,8 @@
   background-color: var(--primary-light);
 }
 
-.author-info .link:focus {
+.author-info .link:focus,
+.close-modal:focus {
   outline: 2px solid var(--text-dark);
   outline-offset: 2px;
 }

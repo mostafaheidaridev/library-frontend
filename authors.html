@@ -58,26 +58,26 @@
     <main>
       <h2>Authors</h2>
 
-      <div class="searchable-select">
+      <section class="searchable-select">
             <input type="text"
                    class="search-input"
                    name="author_search"
                    placeholder="Search authors..."
                    aria-label="Search authors">
-          <div class="search-results"></div>
-      </div>
+          <div class="search-results" aria-live="polite"></div>
+      </section>
 
-        <section id="author-display-section">
+      <section id="author-display-section" aria-label="List of authors">
 
-        </section>
+      </section>
 
-        <section id="author-books-display-modal" style="display:none;">
-            <div class="modal-content">
-                <h3 id="modal-title"></h3>
-            <div id="modal-books-list"></div>
-                <button class="close-modal" id="close-modal-btn">Close</button>
-            </div>
-        </section>
+      <section id="author-books-display-modal" style="display:none;">
+          <div class="modal-content">
+              <h3 id="modal-title"></h3>
+          <div id="modal-books-list"></div>
+              <button class="close-modal" id="close-modal-btn">Close</button>
+          </div>
+      </section>
     </main>
 
     <template class="author-card">
