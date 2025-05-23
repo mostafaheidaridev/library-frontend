@@ -57,11 +57,9 @@
         </nav>
     </header>
 
-    
-
     <main>
         <div>
-            <section id="author-section">
+            <section id="author-section" aria-labelledby="author-heading">
                 <header class="author-header">
                     <h2>Add new author:</h2>
                 </header>
@@ -89,7 +87,8 @@
                 <button type="submit">Add Author</button>
             </form>
         </div>
-        <div id="author-added-message"></div>
+        <!-- aria polite added - so that screenreaders will know when content is inserted -->
+        <div id="author-added-message" aria-live="polite"></div>
     </template>
 
     <template id="Add-new-publisher-template">
@@ -99,7 +98,7 @@
                 <button type="submit">Add Publisher</button>
             </form>
         </div>
-        <div id="publisher-added-message"></div>
+        <div id="publisher-added-message" aria-live="polite"></div>
     </template>
 
     <template id="Add-new-book-template">
@@ -114,7 +113,7 @@
                         <input type="hidden" name="author_id" required>
                         <div class="search-results"></div>
                     </div>
-                    <p>Either add a New Author og Search for existing one</p>
+                    <p>Either add a New Author or Search for existing one</p>
                     <button type="button" id="toggle-new-author">+ Add New Author</button>
                 </div>
                 
@@ -138,7 +137,7 @@
                     <label>Publisher Name: <input type="text" name="publisher_name"></label>
                 </div>
     
-                <label>Publishing Year: 
+                <label for="year-book">Publishing Year: 
                     <input 
                     id="year-book"
                     type="number" 
@@ -156,7 +155,7 @@
                 <button type="submit">Add Book</button>
             </form>
         </div>
-        <div id="book-added-message"></div>
+        <div id="book-added-message" aria-live="polite"></div>
     </template>
 
     <footer>
