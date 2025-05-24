@@ -47,9 +47,11 @@
   --max-width-xlarge: 1200px;
   --max-width-large: 800px;
   --max-width-medium: 600px;
+  --max-width-mid: 500px;
   --max-width-small: 450px;
   --max-width-xsmall: 300px;
   --max-width-xxsmall: 150px;
+  --max-width-tiny: 100px;
   --max-width-mini: 65px;
 
   /* min width */
@@ -59,6 +61,7 @@
   /* min height */
   --min-height-large: 400px;
   --min-height-medium: 250px;
+  --min-height-mid: 250px;
   --min-height-small: 60px;
   --min-height-xsmall: 48px;
 
