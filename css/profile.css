@@ -140,7 +140,8 @@ main h2 {
     }
     .email{
         display: flex;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
+        line-break: anywhere;
     }
     
 }
